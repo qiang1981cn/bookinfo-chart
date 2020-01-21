@@ -10,6 +10,9 @@ spec:
   selector:
     matchLabels:
       app: details
+  selector:
+    matchLabels:
+      app: details
   template:
     metadata:
       labels:
