@@ -37,6 +37,9 @@ metadata:
     version: v1
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: ratings
   template:
     metadata:
       labels:
@@ -80,6 +83,9 @@ metadata:
     version: {{ .Values.master.version }}
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: reviews
   template:
     metadata:
       labels:
@@ -107,6 +113,9 @@ metadata:
     version: {{ .Values.canary.version }}
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: reviews
   template:
     metadata:
       labels:
@@ -152,6 +161,9 @@ metadata:
     version: v1
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: productpage
   template:
     metadata:
       labels:
