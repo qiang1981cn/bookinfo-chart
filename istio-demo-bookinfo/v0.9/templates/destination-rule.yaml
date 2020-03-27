@@ -1,0 +1,15 @@
+{{- if .Values.enableCanary }}
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: reviews
+spec:
+  host: reviews
+  subsets:
+  - name: {{ .Values.canary.version }}
+    labels:
+      version: {{ .Values.canary.version }}
+  - name: {{ .Values.master.version }}
+    labels:
+      version: {{ .Values.master.version }}
+{{- end }}

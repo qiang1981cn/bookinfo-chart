@@ -1,0 +1,8 @@
+enableCanary: false
+canaryUser: jason
+master:
+  version: v1
+  weight: 100
+canary:
+  version: v2
+  weight: 0

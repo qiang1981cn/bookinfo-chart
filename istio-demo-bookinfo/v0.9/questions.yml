@@ -1,0 +1,47 @@
+questions:
+- variable: enableCanary
+  default: false
+  required: true
+  label: Deploy Canary Version of Review Service
+  type: boolean
+- variable: master.version
+  default: "v1"
+  type: string
+  label: Version
+  group: "Review Service Master Version"
+  required: true
+- variable: master.weight
+  default: 100
+  description: "How many percent of traffic will send to to master version"
+  type: int
+  min: 0
+  max: 100
+  label: Weight
+  required: true
+  show_if: enableCanary=true
+  group: "Review Service Master Version"
+- variable: canary.version
+  default: "v2"
+  type: string
+  label: Version
+  group: "Review Service Canary Version"
+  required: true
+  show_if: enableCanary=true
+- variable: canary.weight
+  default: 0
+  description: "How many percent of traffic will send to to canary version"
+  type: int
+  min: 0
+  max: 100
+  label: Weight
+  required: true
+  group: "Review Service Canary Version"
+  show_if: enableCanary=true
+- variable: canaryUser
+  default: "jason"
+  type: string
+  label: Canary Test User
+  group: "Review Service Canary Version"
+  description: "Users will be able to use the canary version if cookie contains this value."
+  required: true
+  show_if: enableCanary=true
